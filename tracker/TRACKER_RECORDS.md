@@ -1,13 +1,13 @@
 # Tracker PWA — Sistema de Registros
 
-Documentación técnica del sistema de registros de `tracker.html`.  
+Documentación técnica del sistema de registros de `index.html`.  
 Audiencia: desarrolladores que extiendan o mantengan la app.
 
 ---
 
 ## 1. Visión general
 
-El tracker es una **PWA offline-first** de una sola página (`tracker.html`) sin backend.
+El tracker es una **PWA offline-first** de una sola página (`index.html`) sin backend.
 Todo el estado persiste en **`localStorage`** bajo la clave `tracker_state` como JSON.
 No hay base de datos ni servidor; toda la lógica de cálculo, visualización y exportación corre en el navegador.
 
@@ -178,14 +178,14 @@ El campo `intensidad` almacena un entero del **1 al 5** que representa la dificu
 
 | Punto de uso | Archivo | Comportamiento |
 |---|---|---|
-| Slider de captura | `tracker.html:1487` | Rango `min=1 max=5 step=1`, muestra `n/5 · etiqueta` |
-| `syncIntensidad()` | `tracker.html:2482` | Actualiza label y CSS `--val` para colorear el track |
-| Badge de alerta | `tracker.html:2922` | Muestra chip `warn` cuando `intensidad === 5` |
-| Metadato de tarjeta | `tracker.html:2996` | Muestra `dif n/5` en cada registro del historial |
-| Gráfica de línea | `tracker.html:3522` | Eje Y de 0 a 5, una serie por sesión |
-| Dashboard insight | `tracker.html:3772` | Insight positivo si la media sube respecto a la semana anterior |
-| Resumen IA semanal | `tracker.html:3943` | Línea `Dificultad: n/5 ▲/▼/→` |
-| Export CSV | `tracker.html:4215` | Columna `dificultad` (valor entero 1–5) |
+| Slider de captura | `index.html:1487` | Rango `min=1 max=5 step=1`, muestra `n/5 · etiqueta` |
+| `syncIntensidad()` | `index.html:2482` | Actualiza label y CSS `--val` para colorear el track |
+| Badge de alerta | `index.html:2922` | Muestra chip `warn` cuando `intensidad === 5` |
+| Metadato de tarjeta | `index.html:2996` | Muestra `dif n/5` en cada registro del historial |
+| Gráfica de línea | `index.html:3522` | Eje Y de 0 a 5, una serie por sesión |
+| Dashboard insight | `index.html:3772` | Insight positivo si la media sube respecto a la semana anterior |
+| Resumen IA semanal | `index.html:3943` | Línea `Dificultad: n/5 ▲/▼/→` |
+| Export CSV | `index.html:4215` | Columna `dificultad` (valor entero 1–5) |
 
 ### Retrocompatibilidad
 
@@ -251,7 +251,7 @@ interface WeekMetrics {
 ## 8. Service Worker y caché
 
 El SW (`sw.js`) usa `CACHE_VERSION = "tracker-v7"`.  
-**Incrementar** este valor cada vez que se modifique `tracker.html`, `sw.js`, o cualquier asset referenciado en la lista de precaché.
+**Incrementar** este valor cada vez que se modifique `index.html`, `sw.js`, o cualquier asset referenciado en la lista de precaché.
 
 ---
 
@@ -262,7 +262,7 @@ El SW (`sw.js`) usa `CACHE_VERSION = "tracker-v7"`.
 python -m http.server 8080
 
 # Smoke-test de todos los bloques <script> inline
-node -e "const fs=require('fs');const html=fs.readFileSync('tracker.html','utf8');const re=/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g;let m,ok=0;while((m=re.exec(html))){new Function(m[1]);ok++;}console.log('ok:',ok);"
+node -e "const fs=require('fs');const html=fs.readFileSync('index.html','utf8');const re=/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g;let m,ok=0;while((m=re.exec(html))){new Function(m[1]);ok++;}console.log('ok:',ok);"
 
 # Migrar datos legacy (escala 1-10 → 1-5) desde la consola del navegador
 const s = JSON.parse(localStorage.tracker_state);

@@ -2,7 +2,7 @@
   "name": "Tracker — Performance Dashboard",
   "short_name": "Tracker",
   "description": "Seguimiento personal de fitness: ejercicios, mediciones, comidas y métricas semanales.",
-  "start_url": "./tracker.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
@@ -13,25 +13,25 @@
     {
       "name": "Ejercicios",
       "short_name": "Gym",
-      "url": "./tracker.html#ejercicios",
+      "url": "./index.html#ejercicios",
       "description": "Registrar sesión de ejercicio"
     },
     {
       "name": "Mediciones",
       "short_name": "Peso",
-      "url": "./tracker.html#mediciones",
+      "url": "./index.html#mediciones",
       "description": "Registrar medición corporal"
     },
     {
       "name": "Dashboard",
       "short_name": "Stats",
-      "url": "./tracker.html#dashboard",
+      "url": "./index.html#dashboard",
       "description": "Ver métricas y gráficas"
     },
     {
       "name": "Resumen semanal",
       "short_name": "Semana",
-      "url": "./tracker.html#resumen",
+      "url": "./index.html#resumen",
       "description": "Resumen semanal y asistente IA"
     }
   ],

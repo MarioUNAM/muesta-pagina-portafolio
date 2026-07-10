@@ -55,7 +55,6 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/tracker-icon-180.png" />
 
   <!-- Fonts: self-hosted (definidas en main.css). Preload del peso crítico del hero -->
   <link rel="preload" href="assets/fonts/manrope-variable.woff2" as="font" type="font/woff2" crossorigin>
@@ -639,104 +638,6 @@
         <p class="font-label text-xs text-on-surface-variant uppercase tracking-tighter mt-1">Executive Mgmt. Institute</p>
         <span class="material-symbols-outlined text-primary cert-arrow mt-4 block">arrow_forward</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider" />
-
-
-<!-- ═══════════════════════════════════════════
-     UI SHOWCASES — demos de diseño frontend
-════════════════════════════════════════════ -->
-<section class="bg-surface-container-low py-24 px-6" id="ui-showcases" data-fade-section>
-  <div class="max-w-7xl mx-auto">
-
-    <!-- Encabezado de sección -->
-    <div class="mb-16 reveal">
-      <span class="font-label text-primary text-sm tracking-[0.4em] uppercase font-bold flex items-center gap-3 mb-3">
-        <span class="material-symbols-outlined text-base">palette</span>
-        UI Showcases
-      </span>
-      <h2 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface">
-        Frontend <span class="text-primary">Design Lab.</span>
-      </h2>
-      <p class="font-body text-sm text-on-surface-variant mt-4 max-w-2xl leading-relaxed">
-        Production-ready HTML/CSS/JS work built without frameworks. Self-contained, zero build step.
-      </p>
-    </div>
-
-    <!-- Grid de demos — full-width hasta tablet, centrado en desktop -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto reveal-stagger">
-
-      <!-- Demo: TRACKER PWA -->
-      <a href="tracker.html" target="_blank" rel="noopener"
-         class="showcase-card group"
-         aria-label="Open Tracker — Performance PWA in a new tab">
-
-        <div class="showcase-preview" style="background:#0a0d10;">
-          <div class="absolute inset-0 opacity-15"
-               style="background-image:linear-gradient(#1e2530 1px,transparent 1px),linear-gradient(90deg,#1e2530 1px,transparent 1px);background-size:24px 24px;"></div>
-          <div class="relative z-10 w-4/5 max-w-xs">
-            <div class="flex items-center gap-2 mb-3">
-              <div class="w-2 h-2" style="background:#00ff88;box-shadow:0 0 8px #00ff88;"></div>
-              <div class="h-2 w-20" style="background:rgba(0,255,136,0.4);"></div>
-              <div class="ml-auto text-[9px] tracking-[0.2em]" style="color:#00ff88;font-family:'JetBrains Mono',monospace;">LIVE</div>
-            </div>
-            <div class="text-[9px] tracking-[0.25em] mb-2" style="color:#8b96a3;font-family:'JetBrains Mono',monospace;">VOLUMEN · KG</div>
-            <div class="flex items-end gap-1 h-16 mb-3">
-              <div class="flex-1" style="height:30%;background:rgba(0,255,136,0.5);"></div>
-              <div class="flex-1" style="height:55%;background:rgba(0,255,136,0.7);"></div>
-              <div class="flex-1" style="height:42%;background:#0066ff;"></div>
-              <div class="flex-1" style="height:70%;background:rgba(0,255,136,0.7);"></div>
-              <div class="flex-1" style="height:85%;background:#00ff88;box-shadow:0 0 12px rgba(0,255,136,0.4);"></div>
-              <div class="flex-1" style="height:60%;background:#0066ff;"></div>
-              <div class="flex-1" style="height:78%;background:rgba(0,255,136,0.7);"></div>
-            </div>
-            <div class="grid grid-cols-3 gap-1.5">
-              <div class="border-l-2 px-1.5 py-1" style="border-color:#00ff88;background:#11161b;">
-                <div class="text-[7px] tracking-[0.2em]" style="color:#8b96a3;font-family:'JetBrains Mono',monospace;">SES</div>
-                <div class="text-[12px] font-bold" style="color:#e6edf3;font-family:'JetBrains Mono',monospace;">14</div>
-              </div>
-              <div class="border-l-2 px-1.5 py-1" style="border-color:#0066ff;background:#11161b;">
-                <div class="text-[7px] tracking-[0.2em]" style="color:#8b96a3;font-family:'JetBrains Mono',monospace;">CAR</div>
-                <div class="text-[12px] font-bold" style="color:#e6edf3;font-family:'JetBrains Mono',monospace;">120'</div>
-              </div>
-              <div class="border-l-2 px-1.5 py-1" style="border-color:#00ff88;background:#11161b;">
-                <div class="text-[7px] tracking-[0.2em]" style="color:#8b96a3;font-family:'JetBrains Mono',monospace;">PCT</div>
-                <div class="text-[12px] font-bold" style="color:#00ff88;font-family:'JetBrains Mono',monospace;">71%</div>
-              </div>
-            </div>
-          </div>
-          <span class="badge-web">PWA</span>
-        </div>
-
-        <div class="showcase-body">
-          <div class="flex items-start gap-3 mb-4">
-            <div class="showcase-icon"><span class="material-symbols-outlined text-[22px] text-primary">monitoring</span></div>
-            <div class="min-w-0">
-              <p class="font-label text-[10px] text-outline uppercase tracking-widest mb-1">PWA · Vanilla JS · Chart.js · localStorage</p>
-              <h3 class="showcase-title">Tracker — Performance Dashboard</h3>
-            </div>
-          </div>
-          <p class="showcase-desc">
-            Single-file PWA for personal fitness tracking. Five tabs (workouts, body
-            measurements, meals, dashboard, weekly export), 10 reactive charts, animated
-            insights and a structured-JSON weekly summary ready for LLM analysis.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="tech-tag">Vanilla JS</span>
-            <span class="tech-tag">Chart.js</span>
-            <span class="tech-tag">Service Worker</span>
-            <span class="tech-tag">localStorage</span>
-          </div>
-          <div class="showcase-cta">
-            <span>Open Live Demo</span>
-            <span class="material-symbols-outlined text-primary text-base">open_in_new</span>
-          </div>
-        </div>
-      </a>
-
     </div>
   </div>
 </section>

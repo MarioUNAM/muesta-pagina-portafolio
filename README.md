@@ -177,7 +177,7 @@ El demo industrial (`studio/lab/industrial/`) es un demo conceptual extendido: 7
 
 ---
 
-## Tracker personal — `tracker.html`
+## Tracker personal — `tracker/index.html`
 
 PWA standalone sin tracking ni servidor. Datos solo en `localStorage`.
 
@@ -224,7 +224,7 @@ git commit -m "descripción del cambio"
 git push origin main
 ```
 
-Después de subir cambios al `tracker.html` o `sw.js`, sube `CACHE_VERSION` en `sw.js` para que el prompt de "Nueva versión" aparezca en sesiones abiertas.
+Después de subir cambios a `tracker/index.html` o `tracker/sw.js`, sube `CACHE_VERSION` en `tracker/sw.js` para que el prompt de "Nueva versión" aparezca en sesiones abiertas.
 
 ---
 
@@ -235,7 +235,7 @@ python -m http.server 8080
 # Abrir http://localhost:8080
 ```
 
-> El tracker usa `crypto.randomUUID()` que requiere HTTPS o localhost. Servir con `python -m http.server` funciona; abrir `tracker.html` directo desde el filesystem (`file://`) usará el fallback casero de `uid()`.
+> El tracker usa `crypto.randomUUID()` que requiere HTTPS o localhost. Servir con `python -m http.server` funciona; abrir `tracker/index.html` directo desde el filesystem (`file://`) usará el fallback casero de `uid()`.
 
 ---
 
@@ -243,7 +243,7 @@ python -m http.server 8080
 
 ```bash
 # Smoke test de sintaxis JS inline (no rompe nada)
-node -e "const fs=require('fs');const html=fs.readFileSync('tracker.html','utf8');const re=/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g;let m,ok=0;while((m=re.exec(html))){new Function(m[1]);ok++;}console.log('inline scripts ok:',ok);"
+node -e "const fs=require('fs');const html=fs.readFileSync('tracker/index.html','utf8');const re=/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g;let m,ok=0;while((m=re.exec(html))){new Function(m[1]);ok++;}console.log('inline scripts ok:',ok);"
 ```
 
 Para Lighthouse local: Chrome DevTools → Lighthouse → run en mobile + desktop.

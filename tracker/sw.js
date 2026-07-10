@@ -5,7 +5,7 @@
    network-first con fallback a cache para el resto.
    Sube CACHE_VERSION cuando publiques cambios para invalidar.
    ============================================================ */
-const CACHE_VERSION = "tracker-v8";
+const CACHE_VERSION = "tracker-v9";
 
 // Permite al cliente forzar la activación del SW nuevo cuando
 // el usuario aprueba el prompt "Recargar" del tracker.
@@ -19,12 +19,12 @@ const OFFLINE_HTML = `<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"
 <title>Sin conexión · Tracker</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>body{font-family:system-ui,sans-serif;background:#0b0c0f;color:#e8eaed;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:24px;text-align:center}h1{font-size:24px;margin:0 0 12px}p{color:#8b909a;line-height:1.5;max-width:400px}a{color:#10b981;text-decoration:none;border-bottom:1px solid #10b981;padding-bottom:2px}</style>
-</head><body><div><h1>Sin conexión</h1><p>No hay red ni copia en caché de esta página. Tus datos locales (localStorage) están seguros.</p><p><a href="./tracker.html">Reintentar</a></p></div></body></html>`;
+</head><body><div><h1>Sin conexión</h1><p>No hay red ni copia en caché de esta página. Tus datos locales (localStorage) están seguros.</p><p><a href="./index.html">Reintentar</a></p></div></body></html>`;
 const CORE_ASSETS = [
-  "./tracker.html",
+  "./index.html",
   "./manifest.json",
   "./assets/img/tracker-icon.svg",
-  "./assets/fonts/inter-variable.woff2",
+  "../assets/fonts/inter-variable.woff2",
   "./assets/fonts/jetbrains-mono-variable.woff2",
   "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
 ];
@@ -50,11 +50,11 @@ self.addEventListener("fetch", e => {
   const req = e.request;
   if (req.method !== "GET") return;
 
-  // Navegación: network-first → cache de tracker.html → página offline.
+  // Navegación: network-first → cache de index.html → página offline.
   if (req.mode === "navigate") {
     e.respondWith(
       fetch(req).catch(() =>
-        caches.match("./tracker.html").then(hit =>
+        caches.match("./index.html").then(hit =>
           hit || new Response(OFFLINE_HTML, { headers: { "Content-Type": "text/html; charset=utf-8" } })
         )
       )
